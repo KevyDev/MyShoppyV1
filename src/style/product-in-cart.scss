@@ -1,0 +1,90 @@
+@import "colors";
+
+li.product-in-cart, li.product-in-wishes {
+    display: grid;
+    grid-template-columns: 5em 1fr;
+    gap: .5em;
+    div.img-container {
+        width: 5em;
+        height: 5em;
+        background: $gray;
+        border-radius: .5em;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    div.info-container {
+        width: 100%;
+        h4 {
+            display: block;
+            margin-bottom: .2em;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            max-height: 2em;
+        }
+        h5.price, h5.subtotal {
+            color: $gray;
+        }
+        div.quantity-buttons-container, div.wishes-buttons-container {
+            margin-top: .5em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            h5 {
+                background: $background;
+                width: 4em;
+                height: 2.5em;
+            }
+            button, h5 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            button {
+                width: 3em;
+                height: 3em;
+                cursor: pointer;
+                border: .2em solid;
+                transition: background .2s ease;
+                color: $white;
+                svg {
+                    height: 1em;
+                    fill: $white;
+                }
+                &.decrease-quantity {
+                    border-radius: .5em 0em 0em .5em;
+                }
+                &.increase-quantity {
+                    border-radius: 0em .5em .5em 0em;
+                }
+                &.add-to-cart, &.remove-from-wishes {
+                    border-radius: .5em;
+                }
+                &.decrease-quantity, &.remove-from-wishes {
+                    background: $red;
+                    border-color: $red;
+                    &:hover svg {
+                        fill: $red;
+                    }
+                }
+                &.increase-quantity, &.add-to-cart {
+                    background: $blue;
+                    border-color: $blue;
+                    &:hover svg {
+                        fill: $blue;
+                    }
+                }
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+        div.wishes-buttons-container {
+            gap: .5em;
+        }
+    }
+}

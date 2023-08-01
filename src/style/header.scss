@@ -1,0 +1,50 @@
+@import "colors";
+
+header {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: $headerBg;
+    backdrop-filter: saturate(180%) blur(.5em);
+    border-bottom: 0.1em solid $shadow;
+    transform: translateY(-100%);
+    transition: transform .2s ease;
+    &.on-top {
+        transform: translateY(0);
+    }
+    div.header-container {
+        margin: auto;
+        padding: 1em 4em;
+        max-width: 64em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        div.logo {
+            font-size: 2.5em;
+            color: $blue;
+        }
+        button.cart-button {
+            width: 3em;
+            height: 3em;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: .5em;
+            cursor: pointer;
+            border: .2em solid transparent;
+            transition: .2s ease;
+            &:hover {
+                border-color: $blue;
+            }
+            svg {
+                fill: $blue;
+                height: 1.6em;
+            }
+        }
+    }
+}

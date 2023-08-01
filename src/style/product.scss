@@ -1,0 +1,117 @@
+@import "colors";
+
+li.product-container {
+    background: $white;
+    border-bottom: 0.1em solid $shadow;
+    padding: 1em;
+    border-radius: .5em;
+    width: 100%;
+    div.img-container {
+        width: 14em;
+        height: 14em;
+        background: $gray;
+        border-radius: .5em;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .2s ease;
+        }
+        &:hover img {
+            transform: scale(1.1);
+        }
+    }
+    h4.title {
+        margin: .5em 0em .2em 0em;
+    }
+    h5.price {
+        color: $gray;
+        margin-bottom: .5em;
+    }
+    div.buttons-container {
+        display: grid;
+        grid-template-columns: 3em 1fr;
+        align-items: center;
+        gap: .5em;
+        button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: .5em;
+            border-radius: .5em;
+            cursor: pointer;
+            height: 3em;
+            transition: .2s ease;
+            svg {
+                height: 1.4em;
+            }
+            &.wishes-button {
+                width: 3em;
+                background: none;
+                border: .2em solid transparent;
+                &.active, &:hover {
+                    border-color: $red;
+                }
+                svg {
+                    fill: $red;
+                }
+                &.active {
+                    background: $red;
+                    svg {
+                        fill: $white;
+                    }
+                }
+            }
+            &.cart-button {
+                width: 100%;
+                background: $blue;
+                border: .2em solid $blue;
+                svg {
+                    fill: $white;
+                }
+                span.text {
+                    color: $white;
+                    font-size: 1.2em;
+                }
+                &:hover {
+                    background: transparent;
+                    svg {
+                        fill: $blue;
+                    }
+                    span.text {
+                        color: $blue;
+                    }
+                }
+                span.new-units {
+                    position: absolute;
+                    z-index: -10;
+                    color: $blue;
+                    font-size: 1.2em;
+                    background: $white;
+                    border-radius: 0em .5em .5em 0em;
+                    padding: .5em 1em;
+                    transform: translateX(0);
+                    opacity: 0;
+                    transition: .2s ease;
+                    &.active {
+                        transform: translateX(6em);
+                        opacity: 100;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    li.product-container {
+        div.img-container {
+            width: 18em;
+            height: 18em;
+        }
+        div.buttons-container button.cart-button span.new-units.active {
+            transform: translateX(8em);
+        }
+    }
+}

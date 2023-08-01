@@ -1,0 +1,11 @@
+@import "colors";
+
+footer {
+    width: 100%;
+    padding: 2em 4em;
+    h6 {
+        width: 100%;
+        text-align: center;
+        color: $gray;
+    }
+}
